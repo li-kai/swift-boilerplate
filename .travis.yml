@@ -1,0 +1,5 @@
+language: objective-c
+osx_image: xcode8.2.1
+xcode_project: Boilerplate.xcodeproj
+xcode_scheme: Boilerplate
+xcode_sdk: iphonesimulator10.0
