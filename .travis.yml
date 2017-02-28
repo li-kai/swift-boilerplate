@@ -3,3 +3,5 @@ osx_image: xcode8.2
 xcode_project: Boilerplate.xcworkspace
 xcode_scheme: Boilerplate
 xcode_sdk: iphonesimulator10.0
+script:
+    - xcodebuild clean build -sdk iphonesimulator -workspace Boilerplate.xcworkspace -scheme Boilerplate CODE_SIGNING_REQUIRED=NO
