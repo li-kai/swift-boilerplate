@@ -7,6 +7,9 @@ target 'Boilerplate' do
   pod 'RealmSwift'
   pod 'SwiftLint'
   pod 'Alamofire', '~> 4.4'
+  pod 'RxSwift',    '~> 3.0'
+  pod 'RxCocoa',    '~> 3.0'
+  pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
 
   target 'BoilerplateTests' do
     inherit! :search_paths
