@@ -8,9 +8,8 @@
 
 import Foundation
 import RealmSwift
-import ObjectMapper
 
-class Story: Object, Mappable {
+class Story: Object {
 
     // swiftlint:disable:next variable_name
     dynamic var id: Int = -1
@@ -26,8 +25,15 @@ class Story: Object, Mappable {
     dynamic var title: String = ""
     dynamic var descendants: Int = 0
 
-    required convenience init?(map: Map) {
-        self.init()
+    convenience init?(json: [String: Any]) {
+        guard let id = json["id"],
+        let author = json["by"],
+        let time = json["time"],
+        let score = json["score"] else {
+            return nil
+        }
+        self.id = id
+        self.author = author
     }
 
     func mapping(map: Map) {
@@ -38,6 +44,7 @@ class Story: Object, Mappable {
         url <- map["url"]
         title <- map["title"]
         descendants <- map["descendants"]
+        let array = Mapper<Object>().mapArray(JSONString: json)
         guard let map["kids"] as [Int] else {
             print("could not cast to kids")
         }
