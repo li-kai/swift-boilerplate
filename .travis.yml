@@ -4,4 +4,5 @@ xcode_project: Boilerplate.xcworkspace
 xcode_scheme: Boilerplate
 xcode_sdk: iphonesimulator10.0
 script:
-    - xcodebuild clean build -sdk iphonesimulator -workspace Boilerplate.xcworkspace -scheme Boilerplate CODE_SIGNING_REQUIRED=NO
+    - xcodebuild test -sdk iphonesimulator -workspace Boilerplate.xcworkspace -destination "platform=iOS Simulator,name=iPhone 6,OS=10.0" -scheme Boilerplate -parallelizeTargets ONLY_ACTIVE_ARCH=YES -enableCodeCoverage YES -quiet
+    - bash <(curl -s https://codecov.io/bash) -cF ios -J 'Boilerplate'
